@@ -1,17 +1,17 @@
 # Basic_Calculator_C-
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 // Basic calculator in C++
 bool invalid;
 
 class Calculator
 {
-    protected:
+protected:
     char op;
     float a, b, result;
 
-    public:
+public:
     void set_values(float a1, float b1)
     {
         a = a1;
@@ -21,7 +21,7 @@ class Calculator
     void set_char(void)
     {
         char c;
-        cin>>c;
+        cin >> c;
         op = c;
     }
 
@@ -31,51 +31,49 @@ class Calculator
     {
         return op;
     }
-
 };
 
-void Calculator :: input()
+void Calculator ::input()
 {
-    cout<<"Enter your two values: "<<endl;
-    cin>>a;
-    cin>>b;
+    cout << "Enter your two values: " << endl;
+    cin >> a;
+    cin >> b;
     set_values(a, b);
 
     do
     {
-        cout<<"Enter your operator "<<endl;
+        cout << "Enter your operator " << endl;
         set_char();
 
         switch (return_char())
         {
         case '*':
-            result = a*b;
+            result = a * b;
             invalid = false;
             break;
 
         case '/':
-            result = a/b;
+            result = a / b;
             invalid = false;
             break;
 
         case '+':
-            result = a+b;
+            result = a + b;
             invalid = false;
             break;
 
         case '-':
-            result = a-b;
+            result = a - b;
             invalid = false;
             break;
 
-        
         default:
-        cout<<"Invalid Operator!!"<<endl;
+            cout << "Invalid Operator!!" << endl;
             invalid = true;
             break;
         }
-        
-    }while(invalid == true);
+
+    } while (invalid == true);
 
     cout << result;
 }
@@ -85,6 +83,7 @@ class Scientifc_cal
 protected:
     int n;
     int base, power;
+
 public:
     int factorial(int n)
     {
@@ -102,28 +101,28 @@ public:
         {
             b = base * b;
         }
-        return b; 
+        return b;
     }
 
     void Result(void)
     {
         int number;
-        cout<<"\nEnter your number ";
-        cin>>number;
-        //executing factorial() function here
-        cout<<"Factorial of the number is "<<factorial(number)<<endl;
+        cout << "\nEnter your number ";
+        cin >> number;
+        // executing factorial() function here
+        cout << "Factorial of the number is " << factorial(number) << endl;
 
-        cout<<"Enter Base ";
-        cin>>base;
-        cout<<"Enter the power of your Base ";
-        cin>>power;
+        cout << "Enter Base ";
+        cin >> base;
+        cout << "Enter the power of your Base ";
+        cin >> power;
 
-        //executing pow() function here
-        cout<<pow(base, power)<<endl;
+        // executing pow() function here
+        cout << pow(base, power) << endl;
     }
 };
 
-class Hybrid_Cal : public Scientifc_cal , public Calculator
+class Hybrid_Cal : public Scientifc_cal, public Calculator
 {
 public:
     void display(void)
@@ -133,7 +132,8 @@ public:
     }
 };
 
-int main(){
+int main()
+{
     Hybrid_Cal h1;
     h1.input();
     h1.Result();
